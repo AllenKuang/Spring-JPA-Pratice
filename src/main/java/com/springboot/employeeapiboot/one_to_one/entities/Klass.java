@@ -1,5 +1,7 @@
 package com.springboot.employeeapiboot.one_to_one.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,9 +11,10 @@ public class Klass {
     private Long id;
 
     private String name;
-
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "klass",fetch=FetchType.LAZY)
-    private Leader leader=new Leader();
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinColumn(name="leader_id")
+    private Leader leader;
     public Long getId() {
         return id;
     }

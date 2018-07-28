@@ -27,6 +27,7 @@ public class Company {
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company",fetch=FetchType.LAZY)
     private List<Employee> employees=new ArrayList<>();
+
     public Company(){
 
     }

@@ -22,7 +22,9 @@ public class KlassController {
     }
     @PostMapping(path="")
     public Klass addKlass(@RequestBody Klass klass){
-        klass.getLeader().setKlass(klass);
+        if(klass.getLeader()!=null) {
+            klass.getLeader().setKlass(klass);
+        }
         return klassRespository.save(klass);
     }
 }

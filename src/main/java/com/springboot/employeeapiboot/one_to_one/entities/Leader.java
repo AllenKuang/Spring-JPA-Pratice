@@ -11,14 +11,18 @@ public class Leader {
     private Long id;
     private String name;
 
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="klass_id")
     private Klass klass;
 
     public Leader(String name) {
         this.name = name;
     }
+//    public Leader(String name,Klass klass){
+//        this.name=name;
+//        this.klass=klass;
+//    }
     public Leader(){
 
     }
